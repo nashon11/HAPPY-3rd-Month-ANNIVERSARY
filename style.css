@@ -13,25 +13,25 @@ body {
 
 .container {
   text-align: center;
-  width: 90%;
-  max-width: 700px;
 }
 
 .bouquet {
   display: grid;
-  grid-template-columns: repeat(15, 20px);
+  grid-template-columns: repeat(15, 20px); /* Wider grid */
   grid-gap: 2px;
   justify-content: center;
   margin-top: 40px;
 }
 
 .pixel {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
+  margin: 1px;
   opacity: 0;
   transform: scale(0);
   transition: all 0.3s ease;
   animation: pop 0.4s ease;
+  border-radius: 3px; /* slightly rounded for cuteness */
 }
 
 @keyframes pop {
@@ -61,19 +61,14 @@ body {
   margin-top: 20px;
   opacity: 0;
   max-height: 0;
-  overflow-y: auto;
-  height: 300px;
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid #444;
-  border-radius: 10px;
+  overflow: hidden;
   transition: all 2s ease 2s;
-  font-style: italic;
-  scroll-behavior: smooth;
 }
 
 .scrolling-text p {
   font-size: 1.1rem;
   line-height: 1.6;
-  margin: 10px 0;
+  margin: 10px;
+  font-style: italic; /* Italicize the text */
+  font-family: 'Georgia', serif; /* Elegant font */
 }
