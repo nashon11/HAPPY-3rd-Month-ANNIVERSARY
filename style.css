@@ -65,10 +65,12 @@ body {
   margin-top: 20px;
   opacity: 0;
   max-height: 1000px; /* Allow more height for scrolling */
-  overflow-y: auto; /* Enable vertical scrolling */
+  overflow-y: scroll; /* Enable vertical scrolling */
   height: 50vh; /* Set a specific height to fit the screen */
   transition: all 2s ease 2s;
   padding: 10px; /* Add padding for better appearance */
+  border: 2px solid #fff; /* Add border to make the scroll area visible */
+  border-radius: 10px; /* Rounded corners for the scroll box */
 }
 
 .scrolling-text p {
