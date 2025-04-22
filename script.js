@@ -1,49 +1,45 @@
-const bouquetMap = [
-  "...............",
-  "...rr..rr..rr..",
-  "...rr..rr..rr..",
-  "....rrrrrrrr...",
-  "....rrrrrrrr...",
-  ".....rrr.rr....",
-  ".....gggggg....",
-  "....gggggggg...",
-  "...gggggggggg..",
-  "...gggggggggg..",
-  "....bbbbb.bb...",
-  ".....bb.bb....."
-];
+document.addEventListener('DOMContentLoaded', function() {
+  const bouquetMap = [
+    "...............",
+    "...rr..rr..rr..",
+    "...rr..rr..rr..",
+    "....rrrrrrrr...",
+    "....rrrrrrrr...",
+    ".....rrr.rr....",
+    ".....gggggg....",
+    "....gggggggg...",
+    "...gggggggggg..",
+    "...gggggggggg..",
+    "....bbbbb.bb...",
+    ".....bb.bb....."
+  ];
 
-const bouquet = document.getElementById('bouquet');
+  const bouquet = document.getElementById('bouquet');
 
-// Build pixels from the bouquet map
-bouquetMap.forEach(row => {
-  row.split('').forEach(char => {
-    const pixel = document.createElement('div');
-    pixel.classList.add('pixel');
-    if (char === 'r') pixel.classList.add('red');
-    if (char === 'g') pixel.classList.add('green');
-    if (char === 'b') pixel.classList.add('brown');
-    bouquet.appendChild(pixel);
+  // If bouquet is null, stop the script
+  if (!bouquet) {
+    console.error("Bouquet element not found!");
+    return;
+  }
+
+  // Build pixels from the bouquet map
+  bouquetMap.forEach(row => {
+    row.split('').forEach(char => {
+      const pixel = document.createElement('div');
+      pixel.classList.add('pixel');
+      if (char === 'r') pixel.classList.add('red');
+      if (char === 'g') pixel.classList.add('green');
+      if (char === 'b') pixel.classList.add('brown');
+      bouquet.appendChild(pixel);
+    });
+  });
+
+  const pixels = document.querySelectorAll('.pixel');
+
+  // Animate blocks with sound + bounce
+  pixels.forEach((pixel, index) => {
+    setTimeout(() => {
+      pixel.classList.add('visible');
+    }, index * 70);
   });
 });
-
-const pixels = document.querySelectorAll('.pixel');
-
-// Animate blocks
-pixels.forEach((pixel, index) => {
-  setTimeout(() => {
-    pixel.classList.add('visible');
-  }, index * 70);
-});
-
-// Reveal message
-setTimeout(() => {
-  document.getElementById('message').style.opacity = 1;
-}, pixels.length * 70 + 500);
-
-// Reveal text
-setTimeout(() => {
-  const scrollText = document.getElementById('scrolling-text');
-  scrollText.style.opacity = 1;
-  scrollText.style.maxHeight = '1000px';
-}, pixels.length * 70 + 3000);
