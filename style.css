@@ -1,65 +1,97 @@
+/* General body styling */
 body {
+  background-color: #000;
+  color: #fff;
   margin: 0;
-  background: #000;
-  color: white;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Courier New', Courier, monospace;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
   overflow: hidden;
 }
 
+/* Container styling */
 .container {
   text-align: center;
-  padding: 50px;
 }
 
+/* Bouquet grid styling */
 .bouquet {
   display: grid;
-  grid-template-columns: repeat(10, 20px);
+  grid-template-columns: repeat(15, 20px); /* Wider grid */
   grid-gap: 2px;
   justify-content: center;
-  margin: 0 auto 40px;
+  margin-top: 40px;
 }
 
+/* Pixel styles */
 .pixel {
   width: 20px;
   height: 20px;
-  background: red;
   opacity: 0;
-  animation: popIn 0.4s forwards;
+  transform: scale(0);
+  transition: all 0.3s ease;
+  animation: pop 0.4s ease;
 }
 
-@keyframes popIn {
+/* Pop animation for each pixel */
+@keyframes pop {
+  0% { transform: scale(0.3); }
+  50% { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}
+
+/* Pixel colors */
+.red { background-color: #b30000; }
+.green { background-color: #267326; }
+.dark-green { background-color: #145214; }
+.brown { background-color: #4e2e1f; }
+
+/* Make the pixel visible and bounce it */
+.pixel.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Message text styling */
+.message {
+  font-size: 1.8rem;
+  margin-top: 30px;
+  opacity: 0;
+  transition: opacity 2s ease;
+  font-family: 'Dancing Script', cursive;
+  font-style: italic;
+  color: #ffcc00; /* Soft yellow color */
+}
+
+/* Scrolling text styling */
+.scrolling-text {
+  margin-top: 20px;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 2s ease 2s;
+  font-family: 'Great Vibes', cursive;
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+.scrolling-text p {
+  margin: 10px;
+}
+
+/* Scroll effect for the text */
+.scrolling-text p {
+  animation: scroll-text 15s linear infinite;
+}
+
+@keyframes scroll-text {
   0% {
-    transform: scale(0.2);
-    opacity: 0;
+    transform: translateY(100%);
   }
   100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-.message {
-  font-size: 1.5rem;
-  margin-bottom: 40px;
-  opacity: 0;
-  animation: fadeIn 2s 1.5s forwards;
-}
-
-.scrolling-text {
-  max-height: 50vh;
-  overflow-y: auto;
-  padding: 0 20px;
-  text-align: left;
-  margin: auto;
-  line-height: 1.7;
-  font-size: 1.1rem;
-  width: 100%;
-  max-width: 700px;
-  display: none;
-}
-
-@keyframes fadeIn {
-  to {
-    opacity: 1;
+    transform: translateY(-100%);
   }
 }
