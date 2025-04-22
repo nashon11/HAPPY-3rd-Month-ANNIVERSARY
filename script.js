@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
+  console.log("JavaScript loaded!");  // Check if the script is loading
+  
   const bouquetMap = [
     "...............",
     "...rr..rr..rr..",
@@ -15,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
   ];
 
   const bouquet = document.getElementById('bouquet');
-
+  
   // If bouquet is null, stop the script
   if (!bouquet) {
     console.error("Bouquet element not found!");
@@ -40,6 +42,15 @@ document.addEventListener('DOMContentLoaded', function() {
   pixels.forEach((pixel, index) => {
     setTimeout(() => {
       pixel.classList.add('visible');
-    }, index * 70);
+    }, index * 50);  // Decreased delay for faster appearance
   });
+
+  // Show the message and scrolling text
+  setTimeout(() => {
+    document.getElementById('message').style.opacity = 1;
+  }, 1000);
+
+  setTimeout(() => {
+    document.getElementById('scrolling-text').style.opacity = 1;
+  }, 3000);
 });
