@@ -14,6 +14,7 @@ body {
 .container {
   text-align: center;
   padding: 10px; /* Add padding for better layout */
+  width: 100%;
 }
 
 .bouquet {
@@ -63,10 +64,11 @@ body {
 .scrolling-text {
   margin-top: 20px;
   opacity: 0;
-  max-height: 0;
-  overflow: hidden;
+  max-height: 1000px; /* Allow more height for scrolling */
+  overflow-y: auto; /* Enable vertical scrolling */
+  height: 50vh; /* Set a specific height to fit the screen */
   transition: all 2s ease 2s;
-  padding: 0 10px; /* Add horizontal padding */
+  padding: 10px; /* Add padding for better appearance */
 }
 
 .scrolling-text p {
@@ -90,5 +92,9 @@ body {
 
   .container {
     padding: 20px; /* More padding for mobile */
+  }
+
+  .scrolling-text {
+    height: 40vh; /* Less height for smaller screens */
   }
 }
