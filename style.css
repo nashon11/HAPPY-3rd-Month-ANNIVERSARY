@@ -13,6 +13,7 @@ body {
 
 .container {
   text-align: center;
+  padding: 10px; /* Add padding for better layout */
 }
 
 .bouquet {
@@ -31,7 +32,7 @@ body {
   transform: scale(0);
   transition: all 0.3s ease;
   animation: pop 0.4s ease;
-  border-radius: 3px; /* slightly rounded for cuteness */
+  border-radius: 50%; /* Make it round to resemble rose petals */
 }
 
 @keyframes pop {
@@ -40,10 +41,10 @@ body {
   100% { transform: scale(1); }
 }
 
-.red { background-color: #b30000; }
-.green { background-color: #267326; }
-.dark-green { background-color: #145214; }
-.brown { background-color: #4e2e1f; }
+.red { background-color: #b30000; }   /* Rose petal color */
+.green { background-color: #267326; } /* Leaf color */
+.dark-green { background-color: #145214; } /* Darker green for extra detail */
+.brown { background-color: #4e2e1f; } /* Stalk color */
 
 .pixel.visible {
   opacity: 1;
@@ -55,6 +56,8 @@ body {
   margin-top: 30px;
   opacity: 0;
   transition: opacity 2s ease;
+  max-width: 90%; /* Allow the text to fit better */
+  margin: 0 auto; /* Center the message */
 }
 
 .scrolling-text {
@@ -63,12 +66,29 @@ body {
   max-height: 0;
   overflow: hidden;
   transition: all 2s ease 2s;
+  padding: 0 10px; /* Add horizontal padding */
 }
 
 .scrolling-text p {
   font-size: 1.1rem;
   line-height: 1.6;
   margin: 10px;
-  font-style: italic; /* Italicize the text */
-  font-family: 'Georgia', serif; /* Elegant font */
+  font-style: italic;
+  font-family: 'Georgia', serif;
+  text-align: justify; /* Justify text for better alignment */
+}
+
+/* Media queries for responsive design */
+@media (max-width: 768px) {
+  .message {
+    font-size: 1.5rem; /* Slightly smaller font size for smaller screens */
+  }
+
+  .scrolling-text p {
+    font-size: 1rem; /* Smaller font size on mobile */
+  }
+
+  .container {
+    padding: 20px; /* More padding for mobile */
+  }
 }
