@@ -1,101 +1,77 @@
 body {
-  background-color: #000;
-  color: #fff;
   margin: 0;
-  font-family: 'Courier New', Courier, monospace;
+  padding: 0;
+  background-color: #111;
+  color: #f4f4f4;
+  font-family: 'Georgia', serif;
   display: flex;
-  align-items: center;
   justify-content: center;
-  flex-direction: column;
-  height: 100vh;
-  overflow: hidden;
+  align-items: flex-start;
+  min-height: 100vh;
+  overflow-y: auto;
 }
 
 .container {
+  max-width: 700px;
+  padding: 20px;
+  margin: 40px auto;
+  background: linear-gradient(to bottom right, #222, #111);
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+.main-title {
   text-align: center;
-  padding: 10px;
-  width: 100%;
-}
-
-.bouquet {
-  display: grid;
-  grid-template-columns: repeat(15, 20px);
-  grid-gap: 2px;
-  justify-content: center;
-  margin-top: 40px;
-}
-
-.pixel {
-  width: 18px;
-  height: 18px;
-  margin: 1px;
-  opacity: 0;
-  transform: scale(0);
-  transition: all 0.3s ease;
-  animation: pop 0.4s ease;
-  border-radius: 50%;
-}
-
-@keyframes pop {
-  0% { transform: scale(0.3); }
-  50% { transform: scale(1.3); }
-  100% { transform: scale(1); }
-}
-
-.red { background-color: #b30000; }
-.green { background-color: #267326; }
-.dark-green { background-color: #145214; }
-.brown { background-color: #4e2e1f; }
-
-.pixel.visible {
-  opacity: 1;
-  transform: scale(1);
-}
-
-.message {
-  font-size: 1.8rem;
-  margin-top: 30px;
-  opacity: 0;
-  transition: opacity 2s ease;
-  max-width: 90%;
-  margin: 0 auto;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  font-family: 'Times New Roman', serif;
 }
 
 .scrolling-text {
-  margin-top: 20px;
-  opacity: 0;
-  max-height: 1000px;
-  overflow-y: scroll;
-  height: 50vh;
-  transition: all 2s ease 2s;
+  overflow-y: auto;
+  max-height: none;
   padding: 10px;
-  border: 2px solid #fff;
-  border-radius: 10px;
+  line-height: 1.8;
+  font-style: italic;
 }
 
-.scrolling-text p {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  margin: 10px;
-  font-style: italic;
-  font-family: 'Georgia', serif;
+p {
+  margin-bottom: 15px;
   text-align: justify;
+  font-size: 1.1rem;
+}
+
+.divider {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #ccc;
+  margin: 20px 0;
+}
+
+.photo {
+  display: block;
+  max-width: 100%;
+  margin: 20px auto;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
 }
 
 @media (max-width: 768px) {
-  .message {
+  .main-title {
     font-size: 1.5rem;
   }
 
-  .scrolling-text p {
+  p {
     font-size: 1rem;
   }
 
   .container {
-    padding: 20px;
+    margin: 20px 10px;
   }
-
-  .scrolling-text {
-    height: 40vh;
-  }
+}
+.scrolling-text p,
+.photo {
+  opacity: 0;
+  transform: translateY(20px);
 }
